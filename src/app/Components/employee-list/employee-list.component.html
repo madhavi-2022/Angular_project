@@ -1,0 +1,31 @@
+<p>my parents employee data is</p>
+<h1 class="text-center bg-success text-white">EmployeeDetails</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+       <table align="left">
+        <thead>
+          <tr>
+            <th>sno</th>
+            <th>EmployeeId</th>
+            <th>EmployeeName</th>
+            <th>Salary</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+       <tbody>
+        <tr  *ngFor="let emp of employees;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{emp.eId}}</td>
+          <td>{{emp.name}} </td>
+          <td>{{emp.sal}}</td>
+          <td>{{emp.gender}}</td>
+          
+        </tr>
+       </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    
+

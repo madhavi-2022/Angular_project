@@ -1,0 +1,30 @@
+<h1 class="text-center bg-success text-white">EmployeeDetails</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+
+       <table align="left">
+        <thead>
+          <tr>
+            <th>sno</th>
+            <th>UserId</th>
+            <th>Name</th>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Actions</th>
+            
+          </tr>
+        </thead>
+       <tbody>
+        <tr *ngFor="let user of users;let i=index" >
+          <td>{{i+1}}</td>
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td><button class ="btn btn-primary" (click)="deleteuser(user.id)">DEL</button></td>
+          
+        </tr>
+       </tbody>
+      </table>
+    </div>

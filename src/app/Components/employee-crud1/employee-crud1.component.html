@@ -1,0 +1,8 @@
+<div>i am a parent</div>
+
+<div>
+    <app-employee-list [employees]="employees"></app-employee-list>
+</div>
+<div>
+    <app-employee-add (addevent)="receiveData($event)"></app-employee-add>
+</div>

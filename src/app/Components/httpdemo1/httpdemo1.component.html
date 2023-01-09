@@ -1,0 +1,18 @@
+<button class="btn btn-primary" (click)="fetchHighVolumeData()">FetchData</button><br><br>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        
+         <table align="left" class="table-bordered table-striped-columns">
+          
+         <tbody>
+          <tr  *ngFor="let entry of entries;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{entry.API}}</td>
+            <td>{{entry.Auth}} </td>
+            <td>{{entry.HTTPS}}</td>
+            <td>{{entry.Category}}</td>
+            
+          </tr>
+         </tbody>
+        </table>

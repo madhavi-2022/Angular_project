@@ -1,0 +1,39 @@
+<div>
+  My Name is: {{name}}
+</div>
+<div [innerHtml]="name" ></div>
+<div bind-innerHtml ="name"></div>
+<img src='{{img_url}}'/>&nbsp;
+<img [src]='img_url'/>&nbsp;
+<img bind-src='img_url' >
+<hr>  
+<input value="{{name}}">&nbsp;
+<input [value]="name">&nbsp;
+<input bind-value="name">&nbsp;
+2 way:<input [(ngModel)]="name">&nbsp;
+<hr>
+<button class="btn btn-primary" [disabled]="flag">Button--1</button>
+<button class="btn btn-primary" bind-disabled="flag">Button--1</button>
+
+ <button class="btn btn-success" on-click="addToCart()">Add to cart</button>&nbsp;
+ <hr>
+ <p [hidden]=flag>I am a Paragraph,Click the Below button to toggle Me</p>
+ <button on-click="flag=!flag">{{flag?'Show':'Hide'}}</button>&nbsp;
+<hr>
+ <input type="{{flag?'password':'text'}}"/>
+<button on-click="flag=!flag">password</button>
+<hr>
+Number 1:<input type ="number" [(ngModel)]="val1">&nbsp;
+Number 2:<input type="number" [(ngModel)]="val2">&nbsp;
+<div>Addition:{{val1 + val2}}</div>&nbsp;
+<div>Subtraction:{{val1 - val2}}</div>&nbsp;
+<textarea cols="30" rows="5" [(ngModel)]="msg" maxlength="100"></textarea>
+<p>Remaining:{{100-msg.length}}</p>
+<hr>
+Value1:<input type="number" #n1/>&nbsp;
+value2:<input type="number" ref-n2/>&nbsp;
+<button class="btn btn-primary" (click)="addition(val1,val2)">Addition:</button>
+<div>Addition is{{result}}</div>
+
+
+ 

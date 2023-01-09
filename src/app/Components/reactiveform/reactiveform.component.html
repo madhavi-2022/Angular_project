@@ -1,0 +1,42 @@
+<p>reactiveform works!</p>
+<form [formGroup]="registerForm" >
+    <p>
+        FullName:
+        <input type="text" formControlName="fullname" />
+        <span class="text-danger" *ngIf="registerForm.controls.fullname.hasError('required')">*MandatoryField</span>
+        <span class="text-danger" *ngIf='registerForm.controls.fullname.hasError("minlength")' >
+            Minimum 5 chars required
+        </span>
+        <span class="text-danger" *ngIf='registerForm.controls.fullname.hasError("maxlength")' >
+            Maximum 15 chars required
+        </span>
+    </p>
+    <p>
+        UserName:
+        <input type="text" formControlName="username">
+    </p>
+    <p>
+        Email:
+        <input type="text" formControlName="email">
+    </p>
+    <p>
+        MobileNo:
+        <input type="number" formControlName="mobileno">
+        <span class="text-danger" *ngIf='registerForm.controls.mobileno.hasError("malength")' ></span>
+    </p>
+    <p>
+        Gender:
+        <input type="radio" name='gender' value='male' formControlName="gender">Male
+        <input type="radio" name='gender' value='female' formControlName="gender">Female
+    </p>
+    <fieldset formGroupName="address">
+        <p>City:<input formControlName='city'></p>
+        <p>state:<input formControlName='State'></p>
+        <p>pin:<input formControlName='pin'></p>
+    </fieldset>
+
+    <input type="submit" value="submit"/>
+    <input type="reset" value="clear"/>
+</form>
+
+<h3>{{registerForm.value | json}}</h3>

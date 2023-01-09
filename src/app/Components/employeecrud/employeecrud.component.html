@@ -1,0 +1,88 @@
+<h1 class="text-center bg-success text-white">EmployeeDetails</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <input type="search" placeholder="search..." class="form-control" [(ngModel)]="searchText">
+       <table align="left">
+        <thead>
+          <tr>
+            <th>sno</th>
+            <th>EmployeeId</th>
+            <th>EmployeeName</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>Actions</th> 
+          </tr>
+        </thead>
+       <tbody>
+        <tr  *ngFor="let emp of employees|mysort| search:searchText ;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{emp.eId}}</td>
+          <td>{{emp.name |genderpipe:emp.Gender}} </td>
+          <td>{{emp.sal}}</td>
+          <td>{{emp.Gender}}</td>
+          <td>
+           <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#viewModal" (click)="viewEmployee=emp">View</button>&nbsp;
+           <button class="btn btn-danger" (click)="deleteRecord(i)">Delete</button>&nbsp;
+           <button class="btn btn-success"  data-bs-toggle="modal1" data-bs-target="#exampleModal1"(click)="editEmployeeData(emp)">Edit</button>
+          </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+    <div class="col-sm-3">
+      <h1>Add Employee</h1>
+      <form name="abc">
+       <div class="mb-3">
+         EmployeeId:<input type="number"  name ="eid" autocomplete="off" [(ngModel)]="eid"/>
+       </div>
+        <div class="mb-3">
+         EmployeeName:<input type="text" name ="name" [(ngModel)]="name" />
+        </div>
+        <div class="mb-3">
+         salary:<input type="number" name ="sal" [(ngModel)]="sal" />
+        </div>
+        <div class="mb-3">
+          Gender:<input type="text" name ="gen" [(ngModel)]="gen" />
+         </div>
+     
+        <button  class="btn btn-primary ms-3" (click)="addEmployee(eid,name,sal,gen)" >AddEmployee</button>&nbsp;&nbsp;
+        <button class="btn btn-primary" type="reset"  value="reset" >Reset</button>&nbsp;&nbsp;
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-sm-3">
+          <h1>Add Employee</h1>
+          <form>
+           <div class="mb-3">
+             EmployeeId:{{viewEmployee.eId}}
+           </div>
+            <div class="mb-3">
+             EmployeeName:{{viewEmployee.name}}
+            </div>
+            <div class="mb-3">
+             salary:{{viewEmployee.Sal}}
+            </div>
+            <div class="mb-3">
+              Gender:{{viewEmployee.Gender}}
+             </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

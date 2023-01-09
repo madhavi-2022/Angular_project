@@ -1,0 +1,11 @@
+.card{
+    width:18rem;
+    height: 450px;;
+    box-shadow: 0 0 5px 0 rgba(22, 22, 26, .25);
+}
+img.card-img-top{
+    height:180px;
+}
+.col-sm{
+    margin-bottom: 1em;
+}
